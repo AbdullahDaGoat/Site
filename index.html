@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+app.get('/', (req, res) => {
+    res.send(`
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -82,7 +84,6 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
             opacity: 0;
             transition: opacity 0.3s ease;
-            pointer-events: none;
         }
         .card:hover::before {
             opacity: 1;
@@ -180,33 +181,12 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-        }
-        ul li::before {
-            content: '•';
-            color: var(--primary);
-            font-size: 1.5em;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
             }
             .card {
                 padding: 20px;
-            }
-            ul li {
-                padding-left: 20px;
             }
         }
         /* Scrollbar styles */
@@ -353,28 +333,6 @@
                 duration: 0.8,
                 delay: index * 0.1
             });
-
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                gsap.to(card, {
-                    '--x': `${x}px`,
-                    '--y': `${y}px`,
-                    duration: 0.3,
-                    ease: 'sine.out'
-                });
-            });
-
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, {
-                    '--x': '50%',
-                    '--y': '50%',
-                    duration: 0.3,
-                    ease: 'sine.out'
-                });
-            });
         });
 
         gsap.from(".github-link", {
@@ -407,3 +365,5 @@
     </script>
 </body>
 </html>
+    `);
+  });
