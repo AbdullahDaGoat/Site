@@ -268,34 +268,27 @@
                 <h3>Backup Movie Embed URL</h3>
                 <p><span class="method">GET</span> <span class="url">/backup/movie/:tmdbId</span></p>
                 <p>Get the VidSrc embed URL for a movie.</p>
-                <pre><code>GET /backup/movie/533535</code></pre>
+                <pre><code>GET /vidsrc/movie/533535</code></pre>
             </div>
 
             <div class="endpoint">
                 <h3>Backup TV Show Embed URL</h3>
                 <p><span class="method">GET</span> <span class="url">/backup/tvshow/:tmdbId/:season/:episode</span></p>
                 <p>Retrieve the VidSrc embed URL for a TV show episode.</p>
-                <pre><code>GET /backup/tvshow/1399/1/1</code></pre>
-            </div>
-
-            <div class="endpoint">
-                <h3>Movie Subtitles</h3>
-                <p><span class="method">GET</span> <span class="url">/subtitles/movie/:tmdbId</span></p>
-                <p>Access subtitle data for a movie from Wyzie.</p>
-                <pre><code>GET /subtitles/movie/533535?language=en&format=srt</code></pre>
-            </div>
-
-            <div class="endpoint">
-                <h3>TV Show Subtitles</h3>
-                <p><span class="method">GET</span> <span class="url">/subtitles/tvshow/:tmdbId/:season/:episode</span></p>
-                <p>Obtain subtitle data for a TV show episode from Wyzie.</p>
-                <pre><code>GET /subtitles/tvshow/1399/1/1?language=en&format=srt</code></pre>
+                <pre><code>GET /vidsrc/tvshow/1399/1/1</code></pre>
             </div>
         </div>
 
         <div class="card">
             <h2>Caching System</h2>
             <p>Our API implements an intelligent caching mechanism using node-cache. By default, responses for movie and TV show stream data are cached for 1 hour (3600 seconds), ensuring optimal performance and reduced load times.</p>
+        </div>
+
+        <div class="card">
+            <h2>Updates</h2>
+            <ol>
+                <li>Added FlixHQ backup and follows same path as /vidsrc in docs above</li>
+            </ol>
         </div>
     </main>
 
